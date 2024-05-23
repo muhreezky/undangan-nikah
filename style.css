@@ -1,0 +1,12 @@
+nav {
+  padding: 10px 20px 10px 20px;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "EB Garamond";
+}

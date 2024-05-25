@@ -9,12 +9,73 @@
       href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
     <link href="style.css" rel="stylesheet" />
     <title>Fulan ❤ Fulanah</title>
   </head>
   <body>
-    <header>
-      <nav>Hello World</nav>
+    <div class="background"></div>
+    <header style="z-index: 10; position: relative">
+      <nav class="nav">
+        <div class="nav-logo">Fulan & Fulanah</div>
+        <ul class="nav-links">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#mempelai">Mempelai</a>
+          </li>
+          <li>
+            <a href="#">Acara</a>
+          </li>
+        </ul>
+        <div class="nav-hamburger" id="nav-hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
     </header>
+    <main class="content flex justify-center items-center" style="flex-direction: column; gap: 20px;">
+      <section
+        id="atas"
+        class="flex justify-center items-center padding-1 text-white"
+        style="padding: 160px 0; height: auto; flex-direction: column; gap: 5px;"
+      >
+        <h1 class="font-great-vibes text-xl" style="margin: 0;">
+          Fulan & Fulanah
+        </h1>
+        <div class="text-md m-0">akan menggelar pernikahan pada :</div>
+        <div class="text-lg m-0 bold">16 Juni 2024</div>
+      </section>
+      <section id="mempelai" class="text-white" style="padding: 50px 0 50px 0;">
+        <div class="card">
+          <img src="images/laki.jpg" class="card-image">
+          <div class="card-title font-great-vibes">Fulan</div>
+          <div class="card-text text-center">
+            Putra pertama dari Bapak Sigma dan Ibu Fanumah
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/perempuan.jpg" class="card-image">
+          <div class="card-title font-great-vibes">Fulanah</div>
+          <div class="card-text text-center">
+            Putri ke-3 dari Bapak John Doe dan Ibu Jane Doe
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      const hamburger = document.getElementById("nav-hamburger");
+      const links = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        links.classList.toggle("open");
+      });
+    </script>
   </body>
 </html>

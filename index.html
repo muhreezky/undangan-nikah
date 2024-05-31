@@ -20,7 +20,7 @@
     <div class="background"></div>
     <header style="z-index: 10; position: relative">
       <nav class="nav">
-        <div class="nav-logo">Fulan & Fulanah</div>
+        <a href="./" class="nav-logo a-no-style">Fulan & Fulanah</a>
         <ul class="nav-links">
           <li>
             <a href="#">Home</a>
@@ -29,7 +29,7 @@
             <a href="#mempelai">Mempelai</a>
           </li>
           <li>
-            <a href="#">Acara</a>
+            <a href="#acara">Acara</a>
           </li>
         </ul>
         <div class="nav-hamburger" id="nav-hamburger">
@@ -39,34 +39,149 @@
         </div>
       </nav>
     </header>
-    <main class="content flex justify-center items-center" style="flex-direction: column; gap: 20px;">
+    <main
+      class="content flex justify-center items-center"
+      style="flex-direction: column; gap: 20px"
+    >
       <section
-        id="atas"
         class="flex justify-center items-center padding-1 text-white"
-        style="padding: 160px 0; height: auto; flex-direction: column; gap: 5px;"
+        style="padding: 170px 0; height: auto; flex-direction: column; gap: 5px"
       >
-        <h1 class="font-great-vibes text-xl" style="margin: 0;">
+        <h1 class="font-great-vibes text-xl" style="margin: 0">
           Fulan & Fulanah
         </h1>
         <div class="text-md m-0">akan menggelar pernikahan pada :</div>
         <div class="text-lg m-0 bold">16 Juni 2024</div>
       </section>
-      <section id="mempelai" class="text-white" style="padding: 50px 0 50px 0;">
-        <div class="card">
-          <img src="images/laki.jpg" class="card-image">
+      <section id="mempelai" class="text-white" style="padding: 50px 0 50px 0">
+        <div class="card invisible hover:cursor-pointer" id="suami">
+          <img src="images/laki.jpg" class="card-image" loading="lazy" />
           <div class="card-title font-great-vibes">Fulan</div>
           <div class="card-text text-center">
             Putra pertama dari Bapak Sigma dan Ibu Fanumah
           </div>
         </div>
-        <div class="card">
-          <img src="images/perempuan.jpg" class="card-image">
+        <div class="card invisible hover:cursor-pointer" id="istri">
+          <img src="images/perempuan.jpg" class="card-image" loading="lazy" />
           <div class="card-title font-great-vibes">Fulanah</div>
           <div class="card-text text-center">
             Putri ke-3 dari Bapak John Doe dan Ibu Jane Doe
           </div>
         </div>
       </section>
+      <script>
+        var mempelaiSec = document.getElementById("mempelai");
+        const mempelaiCards = document.querySelectorAll("#mempelai .card");
+        const suamiCard = document.querySelector("#suami");
+        const istriCard = document.querySelector("#istri");
+
+        let intersect = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                let className = "";
+                switch (entry.target.id) {
+                  case "suami":
+                    className = "animate-from-left";
+                    break;
+                  case "istri":
+                    className = "animate-from-right";
+                    break;
+                  default:
+                    className = "animate-from-up";
+                }
+                entry.target.classList.add(className);
+                entry.target.classList.remove("invisible");
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        intersect.observe(suamiCard);
+        intersect.observe(istriCard);
+      </script>
+      <section id="acara" style="padding: 70px 10px" class="text-center">
+        <div class="acara-card invisible">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              text-align: left;
+            "
+          >
+            <div><b>Lokasi : </b>Citra Raya, Tangerang</div>
+            <div><b>Tanggal : </b>Minggu, 16 Juni 2024</div>
+            <div><b>Jam : </b>10.00 s/d selesai</div>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.18269882429!2d106.52305455!3d-6.2577139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4207d09b75a919%3A0xa067ca78188bb874!2sSukho%20Hotel%20Tangerang!5e0!3m2!1sid!2sid!4v1716694211138!5m2!1sid!2sid"
+            width="600"
+            height="300"
+            style="border: 0; max-width: 100%"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+      <script>
+        const acaraCard = document.querySelector("#acara .acara-card");
+        intersect.observe(acaraCard);
+      </script>
+      <section id="form-hadir" style="padding: 50px" class="text-center">
+        <form id="pesanform" name="pesan" style="padding: 10px">
+          <h2 style="font-size: 30px">Pesan untuk Mempelai</h2>
+          <div>
+            Kirimkan pesan, harapan, dan doa anda untuk kedua mempelai
+          </div>
+          <br />
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <input
+              type="text"
+              class="input font-eb-garamond"
+              name="nama"
+              placeholder="Tulis nama anda di sini"
+            />
+            <input
+              type="text"
+              class="input"
+              name="alamat"
+              placeholder="Tulis alamat anda di sini"
+            />
+            <textarea
+              class="input"
+              name="pesan"
+              placeholder="Tuliskan pesan untuk pengantin"
+            ></textarea>
+            <div style="text-align: left;">
+              <div>Apakah anda akan hadir?</div>
+              <input
+                type="radio"
+                name="kehadiran"
+                value="hadir"
+                id="hadir"
+                checked
+              />&nbsp;<label for="hadir">Ya, saya akan hadir</label><br>
+              <input
+                type="radio"
+                name="kehadiran"
+                value="tidak"
+                id="tidak-hadir"
+              />&nbsp;<label for="tidak-hadir">Mohon maaf, saya tidak dapat hadir</label>
+            </div>
+            <button type="submit" class="button font-eb-garamond hover:cursor-pointer">Kirim</button>
+          </div>
+        </form>
+      </section>
+      <script>
+        const frm = document.getElementById("pesanform");
+        frm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          alert(`Terima kasih untuk pesan dan doa-nya, ${pesan.nama.value}`);
+        })
+      </script>
     </main>
     <script>
       const hamburger = document.getElementById("nav-hamburger");

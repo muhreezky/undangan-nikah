@@ -133,9 +133,7 @@
       <section id="form-hadir" style="padding: 50px" class="text-center">
         <form id="pesanform" name="pesan" style="padding: 10px">
           <h2 style="font-size: 30px">Pesan untuk Mempelai</h2>
-          <div>
-            Kirimkan pesan, harapan, dan doa anda untuk kedua mempelai
-          </div>
+          <div>Kirimkan pesan, harapan, dan doa anda untuk kedua mempelai</div>
           <br />
           <div style="display: flex; flex-direction: column; gap: 12px">
             <input
@@ -155,7 +153,7 @@
               name="pesan"
               placeholder="Tuliskan pesan untuk pengantin"
             ></textarea>
-            <div style="text-align: left;">
+            <div style="text-align: left">
               <div>Apakah anda akan hadir?</div>
               <input
                 type="radio"
@@ -163,15 +161,22 @@
                 value="hadir"
                 id="hadir"
                 checked
-              />&nbsp;<label for="hadir">Ya, saya akan hadir</label><br>
+              />&nbsp;<label for="hadir">Ya, saya akan hadir</label><br />
               <input
                 type="radio"
                 name="kehadiran"
                 value="tidak"
                 id="tidak-hadir"
-              />&nbsp;<label for="tidak-hadir">Mohon maaf, saya tidak dapat hadir</label>
+              />&nbsp;<label for="tidak-hadir"
+                >Mohon maaf, saya tidak dapat hadir</label
+              >
             </div>
-            <button type="submit" class="button font-eb-garamond hover:cursor-pointer">Kirim</button>
+            <button
+              type="submit"
+              class="button font-eb-garamond hover:cursor-pointer"
+            >
+              Kirim
+            </button>
           </div>
         </form>
       </section>
@@ -180,9 +185,22 @@
         frm.addEventListener("submit", (event) => {
           event.preventDefault();
           alert(`Terima kasih untuk pesan dan doa-nya, ${pesan.nama.value}`);
-        })
+        });
       </script>
     </main>
+    <footer>
+      <div>
+        &copy;
+        <a
+          href="https://muhreezky.github.io/portfolio"
+          style="color: black"
+          target="_blank"
+        >
+          Muhammad Rizkiansyah
+        </a>
+        2024
+      </div>
+    </footer>
     <script>
       const hamburger = document.getElementById("nav-hamburger");
       const links = document.querySelector(".nav-links");

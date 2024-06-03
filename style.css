@@ -53,6 +53,8 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: var(--eb-garamond);
+  display: flex;
+  flex-direction: column;
 }
 
 .font-great-vibes {
@@ -435,6 +437,13 @@ body {
 
 .hover\:animate-bounce:hover {
   animation: bounce 1s infinite;
+}
+
+footer {
+  flex: none;
+  background-color: #e7e7e7;
+  padding: 20px 30px;
+  font-family: var(--eb-garamond);
 }
 
 @media screen and (max-width: 768px) {
